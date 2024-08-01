@@ -1,4 +1,4 @@
-/* Should return true if linked list is circular, else false */
+/* Should return true if linked list is circular, else False */
 class Solution {
   public:
     bool isCircular(Node *head) {
