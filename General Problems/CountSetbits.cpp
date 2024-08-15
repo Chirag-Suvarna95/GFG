@@ -27,12 +27,12 @@ class Solution {
        {
           N=N&(N-1);  /*this will unset the rightmost set bit
           and assign the new number to N.*/
+          
           /*N = 12. In binary 1100.
-
           N = 1100
           N - 1 = 1011  ->Unsets the rightmost setbits
           Bitwise AND: 1100 & 1011 = 1000
-*/
+          */
           setbits++;  
        }
         return setbits;
