@@ -11,6 +11,9 @@
         "initializer_list": "cpp",
         "regex": "cpp",
         "valarray": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "utility": "cpp"
     }
 }
