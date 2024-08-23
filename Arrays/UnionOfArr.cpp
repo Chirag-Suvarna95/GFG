@@ -1,6 +1,6 @@
 class Solution {
   public:
-    // Function to return the count of number of elements in union of two arrays.
+    // Function to return the count of number of elements in union of two arrays..
     int doUnion(vector<int> arr1, vector<int> arr2) {
         // code here
          set<int>st;  //doesnt store duplicate values
