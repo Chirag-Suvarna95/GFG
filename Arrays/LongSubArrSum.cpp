@@ -1,4 +1,6 @@
+/*---------------Brute Force---------------------*/
 class Solution{
+
     public:
     int lenOfLongSubarr(int A[],  int N, int K) 
     { 
@@ -31,7 +33,7 @@ class Solution{
     int lenOfLongSubarr(int A[],  int N, int K) 
     { 
         // Complete the function
-        
+
         /*----------------Two Pointer Approach--------------*/
         /*Doesn't work for negative numbers*/
         int sum=0;
@@ -54,6 +56,49 @@ class Solution{
             
         }
         
+        return maxLen;
+    } 
+
+};
+
+
+/*Optimal Solution for both +ve and -ve -------------------------------*/
+
+class Solution{
+    public:
+    int lenOfLongSubarr(int A[],  int N, int K) 
+    { 
+        // Complete the function
+        //Haspmap method
+    map<long long, int> preSumMap;
+    long long sum = 0;
+    int maxLen = 0;
+    
+    for (int i = 0; i < N; i++) {
+        //calculate the prefix sum till index i:
+        sum += A[i];
+
+        // if the sum = k, update the maxLen:
+        if (sum == K) {
+            maxLen = max(maxLen, i + 1);
+        }
+
+        // calculate the sum of remaining part i.e. x-k:
+        long long rem = sum - K;
+
+        //if a sub array of x-k exists
+        //if it does exists it will not be pointing to the end
+        if (preSumMap.find(rem) != preSumMap.end()) {
+            int len = i - preSumMap[rem];
+            maxLen = max(maxLen, len);
+        }
+
+        //At the end, total sum of array 
+        //if sum was not there previously
+        if (preSumMap.find(sum) == preSumMap.end()) {
+            preSumMap[sum] = i;
+        }
+    }
         return maxLen;
     } 
 
