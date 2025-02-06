@@ -39,3 +39,25 @@ public:
         return profit;
     }
 };
+
+/*--------------------------------------------------------------------------*/
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        int max_price = 0;
+        int min_price = INT_MAX;
+
+        for (int i = 0; i < n; i++) {
+            //Find the min value in the array, which will be buy price
+            min_price = min(prices[i], min_price);
+
+            //Find max value after buy price
+            max_price = max(prices[i] - min_price, max_price);
+        }
+
+        if (max_price > 0)
+            return max_price;
+        return 0;
+    }
+};
